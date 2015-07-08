@@ -1,10 +1,10 @@
 ---
 layout: chapter
-title: "Введение"
-subtitle: "О том, как работает <strong>Веб</strong>"
+title: "Introduction"
+subtitle: "An overview of how the <strong>Web</strong> works"
 section: web
 ---
 
-Прежде чем приниматься за техническую и практическую часть кодинга, тебе нужно понять **основы** того, как _все_ работает.
+Before diving into the technical and practical aspect of coding, you need to have a **basic** understanding of how the underlying _environment_ works.
 
-Информация в этом разделе быстро раскажет о работает **Интернета**, и **Веба** в целом.
+This introduction is meant to provide a quick overview of both the **Internet** and the **Web**.
