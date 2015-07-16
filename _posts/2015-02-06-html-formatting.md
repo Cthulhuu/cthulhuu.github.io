@@ -1,133 +1,133 @@
 ---
 layout: post
-title: "HTML <strong>Formatting</strong>"
-subtitle: "When <strong>whitespace</strong> doesn't matter"
+title: "HTML <strong>Форматирование</strong>"
+subtitle: "Когда <strong>пробелы</strong> ничего не значат "
 section: html
 ---
 
-There is a difference between what is **written** in your HTML code, and what is **displayed** in the browser.
+Есть разница между тем, что **написано** в вашем HTML коде, и что **отображается** в браузере
 
-As we've already seen, HTML **tags** like `<p>` are only _read_ by the browser (to know what _kind_ of content is written), but are **not displayed** by the browser.
+Как мы уже видели, HTML **тэги** как <p> всего лишь _читаются_ браузером (чтобы бы понять _какого типа_  контент там написан), но **не показываются** в браузере.
 
-We've also seen how it's possible to write HTML **comments** in your code, to help the human reading the code, without having these comments being displayed by the browser.
+Мы также видели как можно писать HTML **комментарии** в вашем коде, чтобы помочь другому человеку читать ваш код, без отображения этих комментариев на странице.
 
-Another kind of written code _ignored_ by the browser is **whitespace**, which includes:
+Другой тип текста, которые _игнорируется_ браузером это **пробелы**, которые включают:
 
-* line-breaks
-* empty lines
-* tabulations (or indentation)
+*	разрывы строк
+*	пустые строки
+*	табуляции (или отступы)
 
-### Line-breaks
+### Разрывы строк
 
-Line-breaks and empty lines (which are a succession of line-breaks) in HTML code are **ignored** by the browser. They only account for a **single** space.
+Разрывы строк и пустые строки (которые получаются в результате разрыв строк) в HTML коде **игнорируются** в браузере. Они могут рассчитывать только **один** пробел.
 
 {% highlight html %}
 <blockquote>
-The original idea of the web was that it should be a collaborative
+Основная идея интернет-страниц в том, чтобы она взаимодействовала с
 
 
-space
+пробелами
 
 
-where you can communicate through sharing information.
+с которыми ты можешь контактировать по мере распространении информации
 </blockquote>
 {% endhighlight %}
 
 <div class="result">
   <blockquote>
-  The original idea of the web was that it should be a collaborative space where you can communicate through sharing information.
+  Основная идея интернет-страниц в том, чтобы она взаимодействовала с пробелами, с которыми ты можешь контактировать по мере распространении информации.
   </blockquote>
 </div>
 
-In order to actually **force** a line-break, you need to use the `<br>` HTML element:
+В деле с разрывами строк, ты **нуждаешься** только в <br> HTML элементе:
 
 {% highlight html %}
-<p>At its best, life is completely<br>unpredictable.</p>
+<p>В своем лучшем проявлении, жизнь:<br>непредсказуема.</p>
 {% endhighlight %}
 
 <div class="result">
-  <p>At its best, life is completely<br>unpredictable.</p>
+  <p>В своем лучшем проявлении, жизнь:<br>непредсказуема.</p>
 </div>
 
-### Tabulations
+### Табуляция
 
-A **tabulation** is a special character obtained by pressing the _"Tab"_ key. It usually moves the cursor to the next tab stop, but sometimes is converted to 2 spaces.
+**Табуляция** – это специальный символ, который появляется после нажатия клавиши _“Tab”_. Она обычно перемещает курсор на расстояние в 4 пробела, но иногда она конвертируется в два пробела.
 
-Anyway, like a regular space, a tabulation is **invisible**. It's also ignored by the browser:
+В любом случае, табуляция как и пробелы - **невидима**. Она также игнорируется браузерами:
 
 {% highlight html %}
 <p>
-  Let's push      this text
-  with tabulations.
+  Давайте заполним	этот текст
+		табуляциями.
 </p>
 {% endhighlight %}
 
 <div class="result">
   <p>
-    Let's push      this text
-    with tabulations.
+  Давайте заполним	этот текст
+    табуляциями.
   </p>
 </div>
 
-If you want to add space _before_ a word, you'll have to use CSS, which we'll cover in the next chapter.
+Если вы хотите добавить пробел _перед_ словом, вы должны использовать CSS, о котором мы поговорим в следующей части.
 
-If you want to **close** an HTML element, you first have to close all its _children_ elements.
+Если вы хотите **закрыть** HTML элемент, вам для начала нужно закрыть все _дочерние_ элементы.
 {: .info}
 
-### Tree format
+### В виде дерева
 
-As HTML elements can be nested within each other, you have to keep track of the **order** in which they have been opened, as it will affect the order in which they are closed.
+Поскольку HTML элементы могут быть вложены друг в друга, вы должны следить за *порядком* в котором они открываются,поскольку в таком же порядке они должны быть и закрыты.
 
 {% highlight html %}
-<article><p>This code is written on a <strong>single</strong> line.</p></article>
+<article><p>Этот код может быть написан в <strong>одну</strong> строчку.</p></article>
 {% endhighlight %}
 
 <div class="result">
-  <article><p>This code is written on a <strong>single</strong> line.</p></article>
+<article><p>Этот код может быть написан в <strong>одну</strong> строчку.</p></article>
 </div>
 
-As it can be hard to keep track of the order in which HTML elements have been opened, it is recommended to write HTML in a **tree format**:
+Поскольку достаточно сложно отслеживать порядок вложенности HTML элементов, рекомендуется писать HTML тэги в **виде дерева**:
 
 {% highlight html %}
 <article>
   <p>
-    This code is written on
-    <strong>multiple</strong>
-    lines but will be nevertheless
-    be displayed on a
-    <em>single</em>
-    one.
+Этот код написан в
+    <strong>несколько</strong>
+    Строчек, но тем не менее
+    Будет отображен
+    <em>одной</em>
+    строчкой.
   </p>
 </article>
 {% endhighlight %}
 
 <div class="result">
-  <article>
-    <p>
-      This code is written on
-      <strong>multiple</strong>
-      lines but will be nevertheless
-      be displayed on a
-      <em>single</em>
-      one.
-    </p>
-  </article>
+<article>
+  <p>
+Этот код написан в
+    <strong>несколько</strong>
+    Строчек, но тем не менее
+    Будет отображен
+    <em>одной</em>
+    строчкой.
+  </p>
+</article>
 </div>
 
-The tree format allows to _visually_ replicate the **nesting levels** of your HTML code. It's thus easy to see that:
+Вид дерева позволяет _визуально_ наблюдать за **уровнями вложенности** HTML кода. И таким образом легче увидеть, что:
 
-* `<article>` is the **ancestor**
-* `<p>` is the **parent** of `<strong>` and `<em>`
-* `<strong>` and `<em>` are **siblings**
+*	<article> - **предок**
+*	<p> - **родитель**  <strong> и <em>
+*	<strong> и <em> - **соседи**
 
-### Write HTML for you to read
+### Пиши HTML для себя
 
-Tabulations, empty lines, successive spaces, and line-breaks, are dismissed by the computer, and are all converted into a **single space**.
+Табуляции, пустые строчки, пробелы, и разрывы строк игнорируются компьютером и все конвертируются в **один пробел**.
 
-An HTML document is both written and read by a human, but only _read_ by a computer. Considering tabulations, spaces and line-breaks don't affect the way a browser will read and subsequently _display_ your webpage, you may as well format your document in the most readable way for **you**.
+HTML документ написан и читается человеком, но _обрабатывается_ компьютером. Рассмотренные табуляции, пробелы и переносы не влияют на то как браузер _отобразит_ вашу страницу, поэтому вы можете форматировать вид кода так как это удобно **вам**.
 
-There aren't specific rules concerning HTML formatting, but there are implicit **conventions**, specifically:
+Есть специфические правила рассматриваемые в форматировании HTML, но существуют не официальные **соглашения**, такие как:
 
-* use **tabulations** to help visualize how HTML elements are **nested**
-* put opening and closing tags of block-level elements on their **own line**
-* write inline elements on one line (including opening and closing tags)
+*	используйте **табуляции** для **визуализации вложенности**
+*	вставляйте открывающие и закрывающие тэги на **одной вертикали**
+*	**строчные** элементы пишите в **одну строку** (открывающие и закрывающие тэги)
