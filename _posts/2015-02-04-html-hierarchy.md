@@ -93,13 +93,13 @@ The Факт того, что  <strong> отображается **жирным*
 
 В этом примере мы узнали:
 
-* `<article>` is the **ancestor** of _every_ other element
-* `<article>` is the **parent** of the `<h1>` and the 3 `<p>`
-* `<h1>` and the 3 `<p>` are **siblings**
-* each `<p>` is the **parent** of the `<strong>` and `<q>` they contain
-* every `<h1>`, `<p>`, `<strong>` and `<q>` are all **descendants** of `<article>`
+* `<article>` это **предок** _всех_ элементов
+* `<article>` **родитель** `<h1>` и 3 `<p>`
+* `<h1>` и 3 `<p>` являются **соседями**
+* каждый `<p>` является **родителем**  `<strong>` и `<q>` которые они содержат
+* каждый `<h1>`, `<p>`, `<strong>` и `<q>` являются **потомками** `<article>`
 
-The family tree analogy still applies when **traversing** several layers of HTML nesting:
+Аналогия с семейным древом все еще поддерживает **перемещение** по нескольким слоям HTML вложенности:
 
 * **потомок** элемента X это любой элемент, _находящийся_ внутри элемента X
 * **дочерний** элемент Х – это _прямой_ потомок Х
