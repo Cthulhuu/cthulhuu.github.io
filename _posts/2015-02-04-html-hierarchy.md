@@ -1,99 +1,97 @@
 ---
 layout: post
-title: "HTML <strong>Hierarchy</strong>"
-subtitle: "It's a big family <strong>tree</strong>"
+title: "HTML <strong>Иерархия</strong>"
+subtitle: "Это большое  <strong>семейное дерево</strong>"
 section: html
 ---
 
-An HTML document is like a big **family tree**, with parents, siblings, children, ancestors, and descendants.
+HTML документ похож на большое **семейное дерево**, с родителями, соседями, предками и потомками.
 
-It comes from the ability to **nest** HTML elements within one another.
+Это стало возможным благодаря возможности **вложения**  HTML элементов один в другой.
 
-### Nesting
-
-Let's write a simple paragraph and enhance it by _differentiating_ parts of the text, by inserting two **inline** elements:
+### Вложенность
 
 {% highlight html %}
 <p>
-  Sir <strong>Alex Ferguson</strong> once said about Filipo Inzaghi:<q>"That lad must have been born offside."</q>.
+  Сэр <strong>Алекс Фергюсон</strong> однажды сказал про Филлипо Инзаги:<q>Этот парень,похоже, родился на улице.</q>.
 </p>
 {% endhighlight %}
 
-<div class="result"><p>Sir <strong>Alex Ferguson</strong> once said about Filipo Inzaghi: <q>"That lad must have been born offside."</q>.</p></div>
+<div class="result"><p> Сэр <strong>Алекс Фергюсон</strong> однажды сказал про Филлипо Инзаги:<q>Этот парень похоже родился на улице.</q>.</p></div>
 
-In this setup:
+В этом примере:
 
-* the `<strong>` element gives the words "Alex Ferguson" more importance
-* the `<q>` marks his quote about Inzaghi
+* <strong> элемент дает словам “Алекс Фергюсон” важности
+* <q> выделяет слова, как цитату автора
 
-The fact that `<strong>` is displayed in **bold** is **only the browser's default behavior**. Remember that you have to choose HTML elements according to their _meaning_, not how they look like.
+The Факт того, что  <strong> отображается **жирным** всего лишь **стандартное поведение браузера**. Вспомните, что вы должны выбрать HTML элементы согласно их _значению_, а не как они выглядят.
 
-In this case:
+В нашем примере:
 
-* `<p>` is the **parent** element of `<strong>` and `<q>`
-* `<strong>` and `<q>` are **child** elements of `<p>`
-* `<strong>` and `<q>` are **sibling** elements
+* `<p>` - **родитель** элемента `<strong>` и `<q>`
+* `<strong>` и `<q>` являются **дочерними** элементами  `<p>`
+* `<strong>` и `<q>` являются **соседями** друг для друга
 
-### Order
+### Порядок
 
-How **nesting** works depends on the location of _opening_ and _closing_ tags.
+•	**Вложенность** зависит от расположения _открытых_ и _закрытых_ тэгов
 
-Because an HTML element comprises an opening tag, a closing tag, and _everything in between_, a _child_ element must be closed **before** closing the _parent_ element.
+Из-за того, что HTML элемент включает в себя открывающий и закрывающий тэги и все, что _между ними_, а _дочерний_ элемент должен быть закрыт **перед** закрывающим тэгом _родителя_..
 
 
 {% highlight html %}
-<!-- This is INVALID code! :-( -->
+<!-- Это НЕПРАВИЛЬНЫЙ код  :-( -->
 <p>
-  This HTML code won't work because I the "strong" tag is opened here <strong>but is only closed after the paragraph.
+    Это HTML код не работает потому что "strong" тэг открыт <strong> но закрывается после параграфа..
 </p></strong>
 {% endhighlight %}
 
-Because the `<strong>` was opened _after_ the `<p>` (and is thus considered a **child** of `<p>`), the `<strong>` element must be closed **before** its parent `<p>`. 
+•	Потому что  `<strong>` открылся _после_  `<p>` (и потому является **дочерним** элементом  `<p>`), `<strong`> элемент должен закрываться **перед**  `<p>`.
 
 {% highlight html %}
-<!-- This is valid code. :-) -->
+<!-- Это ПРАВИЛЬНЫЙ код. :-) -->
 <p>
-  This HTML code will work because I the "strong" tag is opened <strong>and closed</strong> properly.
+  Это HTML код не работает потому что "strong" тэг открыт <strong>и закрывается перед <strong> параграфом.
 </p>
 {% endhighlight %}
 
-### Depth
+### Глубина вложенности
 
-Because child elements can themselves contain _other_ child elements, it's possible to write a **deeper hierarchy** within an HTML document.
+Потому что дочерние элементы могут содержать _другие_ дочерние элементы становится возможным создавать более **глубокую степень вложенности** в HTML документе.  
 
-Our above paragraph could be part of a blog **article**:
+Наш параграф может быть частью **article**:
 
 {% highlight html %}
 <article>
-  <h1>Famous football quotes</h1>
+  <h1>Известные футбольные цитаты</h1>
   <p>
-    Sir <strong>Alex Ferguson</strong> once said about Filipo Inzaghi:<q>"That lad must have been born offside"</q>.
+  Сэр <strong>Алекс Фергюсон</strong> однажды сказал про Филлипо Инзаги:<q>Этот парень похоже родился на улице.</q>
   </p>
   <p>
-    When criticized by John Carew, <strong>Zlatan Ibrahimovic</strong> replied: <q>"What Carew does with a football, I can do with an orange"</q>.
+    Когда <strong>Златан Имбрагимович</strong> был раскритикован Johnом Carewом он ответил: <q>"То, что Carew делает в футболе, Я могу сделать с апельсином"</q>.
   </p>
   <p>
-    <strong>George Best</strong> said <q>"I spent a lot of money on booze, birds and fast cars. The rest I just squandered."</q> when asked about his lifestyle.
+    <strong>George Best</strong> сказал: <q>"Я потратил много денег на выпивку, птиц и быстрые машины. А остальное просто растратил."</q> когда его спросили о его жизни.
   </p>
 </article>
 {% endhighlight %}
 
 <div class="result">
   <article>
-    <h1>Famous football quotes</h1>
+    <h1>Известные футбольные цитаты</h1>
     <p>
-      Sir <strong>Alex Ferguson</strong> once said about Filipo Inzaghi:<q>"That lad must have been born offside"</q>.
+      Сэр <strong>Алекс Фергюсон</strong> однажды сказал про Филлипо Инзаги:<q>Этот парень похоже родился на улице.</q>.
     </p>
     <p>
-      When criticized by John Carew, <strong>Zlatan Ibrahimovic</strong> replied: <q>"What Carew does with a football, I can do with an orange"</q>.
+    Когда <strong>Златан Имбрагимович</strong> был раскритикован Johnом Carewом он ответил: <q>"То, что Carew делает в футболе, Я могу сделать с апельсином"</q>.
     </p>
     <p>
-      <strong>George Best</strong> replied <q>"I spent a lot of money on booze, birds and fast cars. The rest I just squandered"</q> when asked about his lifestyle.
+      <strong>George Best</strong> сказал: <q>"Я потратил много денег на выпивку, птиц и быстрые машины. А остальное просто растратил."</q> когда его спросили о его жизни.
     </p>
   </article>
 </div>
 
-In this setup:
+В этом примере мы узнали:
 
 * `<article>` is the **ancestor** of _every_ other element
 * `<article>` is the **parent** of the `<h1>` and the 3 `<p>`
@@ -103,25 +101,25 @@ In this setup:
 
 The family tree analogy still applies when **traversing** several layers of HTML nesting:
 
-* a **descendant** of element X is any element _contained_ within X
-* a **child** is just a _direct_ descendant
-* an **ancestor** of element Y is any element 
-* a **descendant** of element X is any element _contained_ within X
-* the **parent** is just the first _direct_ ancestor
+* **потомок** элемента X это любой элемент, _находящийся_ внутри элемента X
+* **дочерний** элемент Х – это _прямой_ потомок Х
+* **предок** элемента Y – это любой элемент
+* **потомок** элемента X это любой элемент _находящийся_  внутри X
+* **родитель** – это всего лишь _прямой_ предок
 
-### Block and inline nesting
+### Блочная и строчная вложенность
 
-**Block** elements can contain either block or inline elements.
+**Блочные** элементы могут содержать другие блочные и строчные элементы.
 
-However, **inline** elements can only contain other _inline_ elements [^1].
+Однако, **строчные** элементы могут содержать только другие  _строчные_ элементы [^1].
 
 {% highlight html %}
-<!-- This is INVALID code! :-( -->
+<!-- Это НЕПРАВИЛЬНЫЙ код! :-( -->
 <strong>
-  <p>You can't put a paragraph inside a "strong" tag.
+  <p>Вы не можете внести параграф внутрь тэга.
 </strong>
 {% endhighlight %}
 
-Just remember ancestor/descendant, parent/child, and siblings. This hierarchy will be useful in CSS.
+Просто помните про предков/потомков, родителя/ребенка, и соседей. Иерархия будет полезна в CSS.
 
-[^1]: the link element `<a>` is the only exception.
+[^1]: элемент <a> является единственным исключением.
